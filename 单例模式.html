@@ -1,0 +1,25 @@
+<script>
+    //单例模式
+    var Person = (function () {
+        var instance;
+        function init(name) {
+            return {
+                name: name
+            }
+        }
+        return {
+            createPerson: function (name) {
+                if (!instance) {
+                    instance = init(name)
+                }
+                return instance;
+            }
+        }
+    }())
+
+    var person1 = Person.createPerson('zhanghan')
+    var person2 = Person.createPerson('zhanghan2')
+    console.log(person1)//zhanghan
+    console.log(person2)//zhanghan
+
+</script>

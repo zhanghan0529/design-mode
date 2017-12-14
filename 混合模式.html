@@ -1,0 +1,20 @@
+<script>
+    //混合模式
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.sayName = function(){
+        console.log(this.name)
+    }
+    function Student(name,age,score){
+        Person.call(this,name,age);
+        this.score = score;
+    }
+    Student.prototype = Object.create(Person.prototype)
+    Student.prototype.sayScore = function(){
+        console.log(this.score)
+    }
+    var student = new Student('zhanghan',25,99)
+    student.sayName()//zhanghan
+</script>
